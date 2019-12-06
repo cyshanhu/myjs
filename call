@@ -1,0 +1,15 @@
+function fun1() {
+  this.add = function () { return this.a; }
+}
+function fun2() {
+  this.sub = function () { return this.a-this.b; }
+}
+function fun3() {
+  this.a = 10;
+  this.b = 2;
+  fun1.call(this);
+  fun2.call(this);
+}
+var f3 = new fun3();
+console.log(f3.add());//10
+console.log(f3.sub());//8
